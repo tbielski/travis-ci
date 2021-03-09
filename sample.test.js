@@ -1,23 +1,32 @@
-// const request = require('supertest')
+const request = require("supertest");
 
-// const app = require('./index.js')
+const app = require("./index.js");
 
-// describe('Post Endpoints', () => {
-//   it('should create a new post', async () => {
-//     const res = await request(app)
-//       .post('/')
-//       .send({
-//         userId: 1,
-//         title: 'test is cool',
-//       })
-//     expect(res.statusCode).toEqual(201)
-//     expect(res.body).toHaveProperty('post')
-//   })
-// })
+describe("Get endpoint", () => {
+  it("should return get", async () => {
+    const res = await request(app).get("/");
+    expect(res.body.message).toEqual("Hello from my node app!");
+  });
+});
 
-describe('Sample Test', () => {
-    it('should test that true === true', () => {
-      expect(true).toBe(true)
-    })
-  })
-  
+describe("Post endpoint", () => {
+  it("should return post", async () => {
+    const res = await request(app).post("/");
+    expect(res.body.message).toEqual("Wow! You did a POST!");
+  });
+});
+
+describe("Put endpoint", () => {
+  it("should return put", async () => {
+    const res = await request(app).put("/");
+    expect(res.body.message).toEqual("PUT");
+  });
+});
+
+describe("Delete endpoint", () => {
+  it("should return delete", async () => {
+    const res = await request(app).delete("/");
+
+    expect(res.body.mes).toEqual("Deleting ...");
+  });
+});

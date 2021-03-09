@@ -1,7 +1,7 @@
-FROM node:14
+FROM node:alpine
 WORKDIR /usr/src/lab3
 COPY package*.json ./
 RUN npm install
-COPY express.js express.js
+COPY index.js index.js
 EXPOSE 8080
-CMD [ "node", "express.js" ]
+CMD [ "node", "index.js" ]

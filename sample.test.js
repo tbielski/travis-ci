@@ -27,6 +27,6 @@ describe("Delete endpoint", () => {
   it("should return delete", async () => {
     const res = await request(app).delete("/");
 
-    expect(res.body.mes).toEqual("Deleting ...");
+    expect(res.body.message).toEqual("Deleting ...");
   });
 });

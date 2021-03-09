@@ -1,0 +1,23 @@
+language: node_js
+
+services:
+  - docker
+
+node_js:
+  - 10
+  - 9
+  - 8
+  - 7
+  - 6
+
+before_install:
+  - docker build -t sample-tests .
+  - docker run -d -p 3000:8080 sample-tests
+  - docker ps -a
+  - docker run sample-tests
+
+install:
+  - npm install
+
+script:
+  - npm jest
